@@ -12,7 +12,7 @@
 */
 
 #Ejemplos
-Route::get('notas', function(){
+Route::get('ntas', function(){
     return 'Aqui estara nuestro listado de notas';
 });
 
@@ -71,7 +71,21 @@ Route::get('Nada', function(){
 #Clase-3 ----------------------------------------------------------------
 
 Route::get('/', function () {
-    return view('notas');
+    return view('welcome');
+});
+
+Route::get('notas', function () {
+    $notas = [
+        'Primer nota',
+        'Segunda nota',
+        'Tercera nota',
+        'Cuarta nota',
+    ];
+    return view('notas', ['notas' => $notas]);
+});
+
+Route::get('notas/agregar', function () {
+    return view('agregar');
 });
 
 Route::get('notas/editar', function () {
